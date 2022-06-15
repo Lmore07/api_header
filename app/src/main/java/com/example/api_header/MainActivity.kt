@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     fun click_boton(view: View) {
         val queue = Volley.newRequestQueue(this)
         val url = "https://api-uat.kushkipagos.com/transfer/v1/bankList"
-        val textView = findViewById<TextView>(R.id.txt_respuesta);
+        val textView = findViewById<TextView>(R.id.txt_respuesta)
 
         var jsonRequest = object : JsonArrayRequest(
             Method.GET, url,null,
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                             "\n"+"code: "+banco.getString("code")+
                             "; name: "+banco.getString("name")+"\n"
                 }
-                textView.setText(lista_bancos)
+                textView.text = lista_bancos
             },
             { error ->
                 textView.text = error.toString()
